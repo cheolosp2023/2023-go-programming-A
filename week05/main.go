@@ -1,15 +1,14 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"time"
+	"os"
 )
 
 func main() {
-	var now time.Time = time.Now()
-	now = time.Now()
-	//var year int = now.Year()  아래와 같음
-	year := now.Year()
-	var month string = now.Month().String()
-	fmt.Println(year, month, now.Hour(), now.Minute(), now.Second())
+	fmt.Print("Input score : ")
+	reader := bufio.NewReader(os.Stdin)
+	inputScore, _ := reader.ReadString('\n') // option 1, Ignore the error return value with the blank identifier
+	fmt.Println(inputScore)
 }
