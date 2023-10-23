@@ -39,7 +39,7 @@ func main() {
 	fmt.Println(reflect.TypeOf('Z'), reflect.TypeOf(2), reflect.TypeOf("Hi"), reflect.TypeOf(4.99), reflect.TypeOf(false))
 	// fmt.Println(math.Floor("삼.오"), math.Ceil("이백십칠쩜칠"), math.Sqrt("sixteen"))
 	// fmt.Println(strings.Title(3.141592))
-	fmt.Println(math.Floor(2.17), math.Ceil(2.17), math.Sqrt(16))
+	fmt.Println(math.Floor(2.17), math.Ceil(2.17), math.Sqrt(16)) //제곱근
 	fmt.Println(strings.Title("open source\tprogramming\n\"go\"!"))
 	//fmt.Println(strings.Title("오픈소스 프로그래밍"))
 	//fmt.Println("OpenSource Programming~", "Go")

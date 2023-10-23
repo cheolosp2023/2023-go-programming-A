@@ -3,12 +3,42 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
+	"math/rand"
 	"os"
+	"strconv"
+	"strings"
+	"time"
 )
 
 func main() {
-	fmt.Print("Input score : ")
+	rand.Seed(time.Now().Unix()) // get the current data and time as an integer
+	answer := rand.Intn(100) + 1 // random integer number (1 ~ 100)
+	fmt.Println("Guess Number Game~")
+	fmt.Println(answer)
+
 	reader := bufio.NewReader(os.Stdin)
-	inputScore, _ := reader.ReadString('\n') // option 1, Ignore the error return value with the blank identifier
-	fmt.Println(inputScore)
+
+	for i := 0; i < 10; i++ {
+		fmt.Println("You have", 10-i, "chances~")
+		fmt.Print("Input guess number : ")
+		inputNumberString, err := reader.ReadString('\n')
+		if err != nil { //에러 발생
+			log.Fatal(err)
+		}
+		inputNumberString = strings.TrimSpace(inputNumberString)
+		inputNumber, err := strconv.Atoi(inputNumberString) // strconv.Atoi : 입력 값(String) > int로 변환
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		if inputNumber == answer {
+			fmt.Println("Great! U got number. congratulations~")
+			break
+		} else if inputNumber < answer {
+			fmt.Println("Guess number is lower then answer") // Answer is higher~
+		} else if inputNumber > answer {
+			fmt.Println("Guess number is higher then answer") // Answer is lower
+		}
+	}
 }
